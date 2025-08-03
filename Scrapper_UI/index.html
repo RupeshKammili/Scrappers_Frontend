@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selenium Test Runner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script> <!-- Linking external JS file -->
+</head>
+<body>
+
+  <div class="container"> 
+  <h1>Tests Trigger for Scrappers</h1>
+
+  <!-- Upload Excel Section -->
+  <label><strong>📁 Upload Excel File:</strong></label><br>
+  <input type="file" id="excelFile" accept=".xlsx,.xls">
+  <button onclick="uploadFile()">Upload Excel</button>
+  <button onclick="clearFileInput()">Clear File</button>
+  <p id="uploadStatus"></p>
+
+  <hr>
+
+  <!-- Run Tests Section -->
+  <button onclick="runTests()">▶ Run Tests</button>
+  <p id="status"></p>
+
+  <p><b>Note:</b> While uploading excel file make sure to remove any textual elements like headers in the first row and only 
+    in the first coloum of n rows you can provide the URLs</p>
+</body>
+</html>
