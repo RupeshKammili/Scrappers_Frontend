@@ -36,12 +36,12 @@
 
     <!-- Run Tests Section -->
     <div class="text-center">
-      <button class="btn btn-primary" onclick="runTests()">▶ Run Tests</button>
+      <button id="runTestsBtn" class="btn btn-primary" onclick="runTests()" disabled>▶ Run Tests</button>
       <p id="status"></p>
     </div>
 
     <div class="mt-4 text-muted small">
-      <p><strong>Note:</strong> <b>While uploading the Excel file, make sure to remove any textual elements like headers in the first row. Only provide URLs in the first column of N rows.</b></p>
+      <p style="color: red;"><strong>Note:</strong> <b>While uploading the Excel file, make sure to remove any textual elements like headers in the first row. Please provide URLs in the first column of N rows.</b></p>
     </div>
   </div>
 

@@ -3,9 +3,11 @@ function uploadFile() {
   const fileInput = document.getElementById('excelFile');
   const file = fileInput.files[0];
   const uploadStatus = document.getElementById("uploadStatus");
+  const runButton = document.getElementById("runTestsBtn");
 
   if (!file) {
     uploadStatus.innerText = "❗ Please select an Excel file first.";
+    runButton.disabled = true;
     return;
   }
 
@@ -19,9 +21,11 @@ function uploadFile() {
   .then(response => response.text())
   .then(data => {
     uploadStatus.innerText = "✅ " + data;
+    runButton.disabled = false; // Enable the Run button
   })
   .catch(error => {
     uploadStatus.innerText = "❌ Upload error: " + error;
+    runButton.disabled = true;
   });
 }
 
@@ -29,6 +33,7 @@ function uploadFile() {
 function clearFileInput() {
   document.getElementById("excelFile").value = "";
   document.getElementById("uploadStatus").innerText = "📁 File selection cleared.";
+  document.getElementById("runTestsBtn").disabled = true; // Disable Run button again
 }
 
 // ✅ Run Test Trigger
