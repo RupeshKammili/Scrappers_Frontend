@@ -1,3 +1,5 @@
+console.log("runTestsBtn element: ", document.getElementById("runTestsBtn"));
+
 // ✅ Upload Excel file
 function uploadFile() {
   const fileInput = document.getElementById('excelFile');
@@ -46,7 +48,7 @@ function runTests() {
   })
   .then(response => response.text())
   .then(data => {
-    status.innerHTML = "✅ " + data;
+    status.innerHTML = "✅ " + data + " --> Please open the report in edge browser for better experience.";
   })
   .catch(error => {
     status.innerText = "❌ Error: " + error;
