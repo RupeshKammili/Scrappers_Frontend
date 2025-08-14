@@ -16,19 +16,20 @@ function uploadFile() {
   const formData = new FormData();
   formData.append("file", file);
 
-  fetch("http://4.240.88.62:8080/upload-excel", {
+  // Call backend via Azure Static Web Apps API proxy
+  fetch("/api/upload-excel", {
     method: "POST",
     body: formData
   })
-  .then(response => response.text())
-  .then(data => {
-    uploadStatus.innerText = "✅ " + data;
-    runButton.disabled = false; // Enable the Run button
-  })
-  .catch(error => {
-    uploadStatus.innerText = "❌ Upload error: " + error;
-    runButton.disabled = true;
-  });
+    .then(response => response.text())
+    .then(data => {
+      uploadStatus.innerText = "✅ " + data;
+      runButton.disabled = false; // Enable the Run button
+    })
+    .catch(error => {
+      uploadStatus.innerText = "❌ Upload error: " + error;
+      runButton.disabled = true;
+    });
 }
 
 // ✅ Clear file input field
@@ -43,14 +44,15 @@ function runTests() {
   const status = document.getElementById("status");
   status.innerText = "⏳ Running tests... Please wait.";
 
-  fetch("http://4.240.88.62:8080/run-tests", {
+  // Call backend via Azure Static Web Apps API proxy
+  fetch("/api/run-tests", {
     method: "POST"
   })
-  .then(response => response.text())
-  .then(data => {
-    status.innerHTML = "✅ " + data + " --> Please open the report in edge browser for better experience.";
-  })
-  .catch(error => {
-    status.innerText = "❌ Error: " + error;
-  });
+    .then(response => response.text())
+    .then(data => {
+      status.innerHTML = "✅ " + data + " --> Please open the report in Edge browser for better experience.";
+    })
+    .catch(error => {
+      status.innerText = "❌ Error: " + error;
+    });
 }
