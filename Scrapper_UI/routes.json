@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/api/*",
-      "rewrite": "http://4.240.88.62:8080/:splat"
+      "rewrite": "http://4.240.88.62:8080"
     }
   ]
 }
