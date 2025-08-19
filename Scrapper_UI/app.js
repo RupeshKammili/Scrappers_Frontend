@@ -16,7 +16,7 @@ function uploadFile() {
   const formData = new FormData();
   formData.append("file", file);
 
-  fetch("/api/upload-excel", {
+  fetch("https://4.240.88.62:8443/upload-excel", {
     method: "POST",
     body: formData
   })
@@ -43,7 +43,7 @@ function runTests() {
   const status = document.getElementById("status");
   status.innerText = "⏳ Running tests... Please wait.";
 
-  fetch("/api/run-tests", {
+  fetch("https://4.240.88.62:8443/run-tests", {
     method: "POST"
   })
   .then(response => response.text())
